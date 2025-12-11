@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const Header = () => {
@@ -8,9 +10,14 @@ const Header = () => {
     startDate.getFullYear() -
     (now.getMonth() < startDate.getMonth() ? 1 : 0);
 
+  const githubLoader = ({ src, width }: { src: string; width: number }) => {
+    return `https://faakezon.github.io/portfolio.github.io${src}?w=${width}`;
+  };
+
   return (
     <div className="flex flex-col items-center sm:items-start w-full mb-16">
       <Image
+        loader={githubLoader}
         src="/profile.jpg"
         alt="Profile photo"
         width={140}
