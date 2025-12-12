@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: locales.map((locale) => ({
       params: { locale },
     })),
-    fallback: false, // ensures only defined locales are generated
+    fallback: false,
   };
 };
 
@@ -31,7 +31,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const dictionary = getDictionary(locale);
 
   if (!dictionary) {
-    // this will fail the build if dictionary is missing
     throw new Error(`Dictionary not found for locale "${locale}"`);
   }
 
@@ -58,7 +57,6 @@ export default function Page({ dictionary }: PageProps) {
           <Header dictionary={dictionary} />
         </Reveal>
 
-        {/* ABOUT SECTION */}
         <Reveal delay={0.5}>
           <section className="w-full mb-16">
             <Title title={t.aboutTitle} />
@@ -68,7 +66,6 @@ export default function Page({ dictionary }: PageProps) {
           </section>
         </Reveal>
 
-        {/* SKILLS */}
         <Reveal delay={0.5}>
           <section className="w-full mb-16">
             <Title title={t.skillsTitle} />
@@ -85,10 +82,8 @@ export default function Page({ dictionary }: PageProps) {
           </section>
         </Reveal>
 
-        {/* PROJECT SECTION (assuming ProjectsSection is updated to use dictionary.Projects) */}
         <ProjectsSection dictionary={dictionary} />
 
-        {/* CONTACT SECTION */}
         <Reveal>
           <section className="w-full mb-24">
             <Title title={t.contactTitle} />
@@ -98,7 +93,6 @@ export default function Page({ dictionary }: PageProps) {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              {/* EMAIL */}
               <a
                 href={`mailto:${t.ContactButtons.emailUrl}`}
                 className="flex items-center gap-3 rounded-full bg-indigo-600 text-white px-6 py-3 font-medium shadow-lg hover:bg-indigo-700 transition-colors"
@@ -114,7 +108,6 @@ export default function Page({ dictionary }: PageProps) {
                 {t.ContactButtons.email}
               </a>
 
-              {/* LINKEDIN */}
               <a
                 href={t.ContactButtons.linkedinUrl}
                 target="_blank"

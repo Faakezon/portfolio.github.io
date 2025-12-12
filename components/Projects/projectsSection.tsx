@@ -10,7 +10,6 @@ interface ProjectsSectionProps {
 const ProjectsSection = ({ dictionary }: ProjectsSectionProps) => {
   const t = dictionary.Projects;
 
-  // Convert the dictionary project entries into a typed array
   const projects = [
     t.Techquity,
     t.Skolon,
