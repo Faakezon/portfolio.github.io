@@ -16,7 +16,7 @@ export const CoverLetterGenerator = ({ dictionary }: CoverLetterGeneratorProps) 
     setLoading(true);
     setOutput("");
 
-    const res = await fetch("https://your-worker-url.workers.dev/generate", {
+    const res = await fetch("https://dulcet-alfajores-2c180c.netlify.app/.netlify/functions/generate-cover-letter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ jobDescription: input }),
