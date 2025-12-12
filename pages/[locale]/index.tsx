@@ -32,7 +32,7 @@ interface PageProps {
   dictionary: Dictionary;
 }
 
-export default function Page({ locale, dictionary }: PageProps) {
+export default function Page({ dictionary }: PageProps) {
   const t = dictionary.Home;
 
   return (
