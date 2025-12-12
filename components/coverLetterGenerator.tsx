@@ -8,6 +8,8 @@ interface CoverLetterGeneratorProps {
 }
 
 export const CoverLetterGenerator = ({ dictionary }: CoverLetterGeneratorProps) => {
+  const t = dictionary.Home;
+
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -30,13 +32,13 @@ export const CoverLetterGenerator = ({ dictionary }: CoverLetterGeneratorProps) 
   return (
     <div className="w-full mt-16">
       <h2 className="text-3xl font-bold mb-4">
-        Generate a Personalized Cover Letter
+        {t.generateCoverLetter}
       </h2>
 
       <textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Paste a job description here..."
+        placeholder={t.pasteJobDescription}
         className="w-full min-h-45 p-4 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900"
       />
 
@@ -45,7 +47,7 @@ export const CoverLetterGenerator = ({ dictionary }: CoverLetterGeneratorProps) 
         disabled={loading}
         className="mt-4 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 text-white font-medium shadow-lg hover:bg-indigo-700 transition-colors"
       >
-        {loading ? "Generating…" : "Generate Cover Letter"}
+        {loading ? t.generating : t.generateCoverLetter}
       </button>
 
       {output && (

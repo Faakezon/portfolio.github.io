@@ -18,6 +18,9 @@ export interface HomeDictionary {
   yearsInIndustry: string;
   yearsTooltip: string;
   ContactButtons: ContactButtons;
+  generateCoverLetter: string;
+  pasteJobDescription: string;
+  generating: string;
 }
 
 export interface ProjectEntry {

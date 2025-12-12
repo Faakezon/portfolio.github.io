@@ -32,7 +32,10 @@
       "linkedin": "LinkedIn",
       "emailUrl": "faak92@outlook.com",
       "linkedinUrl": "https://www.linkedin.com/in/fabian-åkesson-06088867/"
-    }
+    },
+    "generateCoverLetter": "Generate a Personalized Cover Letter",
+    "pasteJobDescription": "Paste a job description here...",
+    "generating": "Generating…"
   },
   "Projects": {
     "sectionTitle": "Projects",
