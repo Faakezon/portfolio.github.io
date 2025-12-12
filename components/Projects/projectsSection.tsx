@@ -1,7 +1,7 @@
 import Reveal from "../reveal";
 import Title from "../title";
 import Project from "./project";
-import type { Dictionary } from "../../../lib/i18n-types";
+import type { Dictionary } from "../../lib/i18n-types";
 
 interface ProjectsSectionProps {
   dictionary: Dictionary;

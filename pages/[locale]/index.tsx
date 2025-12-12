@@ -1,9 +1,9 @@
-import Header from "../components/header";
-import Title from "../components/title";
-import Skill from "../components/skill";
-import Reveal from "../components/reveal";
+import Header from "../../components/header";
+import Title from "../../components/title";
+import Skill from "../../components/skill";
+import Reveal from "../../components/reveal";
 
-import ProjectsSection from "../components/Projects/projectsSection";
+import ProjectsSection from "../../components/Projects/projectsSection";
 
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getDictionary } from "@/lib/i18n";
@@ -18,13 +18,13 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const locale = params?.locale as Locale;
+  const dictionary = getDictionary(locale);
 
-  return {
-    props: {
-      locale,
-      dictionary: getDictionary(locale),
-    },
-  };
+  if (!dictionary) {
+    throw new Error(`Dictionary not found for locale ${locale}`);
+  }
+
+  return { props: { locale, dictionary } };
 };
 
 interface PageProps {
